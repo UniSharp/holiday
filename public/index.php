@@ -7,9 +7,10 @@ header('Content-Type: application/json');
 
 if (!$date) {
     echo json_encode($data);
+    return;
 }
 
-if (!array_key_exists($date, $data)) {
+if ($date && !array_key_exists($date, $data)) {
     echo json_encode([
         'error' => "Invalid date: {$date}",
     ]);
